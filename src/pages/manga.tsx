@@ -8,7 +8,7 @@ export default function MangaPage() {
       <main style={{ padding: '7rem 2rem 2rem 6rem' }}>
 
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6' }}>
-          🚧 Check back here later 🔨
+          🚧 Check back here later 🚧
         </p>
         <img
         src="/promo.png"

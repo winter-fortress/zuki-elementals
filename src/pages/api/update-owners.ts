@@ -9,6 +9,7 @@ const contractABI = ["function ownerOf(uint256 tokenId) view returns (address)"]
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.time('⏱ owners.json update');
   try {
     const owners: Record<string, string> = {};
 
