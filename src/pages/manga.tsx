@@ -5,7 +5,7 @@ export default function MangaPage() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white' }}>
       <NavBar />
-      <main style={{ padding: '7rem 2rem 2rem 6rem' }}>
+      <main style={{ padding: typeof window !== 'undefined' && window.innerWidth < 600 ? '6rem 1rem 2rem 1rem' : '7rem 2rem 2rem 6rem' }}>
 
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6' }}>
           🚧 Check back here later 🚧

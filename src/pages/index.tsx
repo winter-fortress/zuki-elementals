@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white', display: 'flex', flexDirection: 'column' }}>
       <NavBar />
-      <main style={{ padding: '7rem 2rem 2rem 6rem' }}>
+      <main style={{ padding: typeof window !== 'undefined' && window.innerWidth < 600 ? '6rem 1rem 2rem 1rem' : '7rem 2rem 2rem 6rem' }}>
         <h1 style={{ fontSize: '27px', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', marginBottom: '2rem' }}>
           ズーキ Zuki Elementals!!
         </h1>
