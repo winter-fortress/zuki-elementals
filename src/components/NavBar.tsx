@@ -31,9 +31,8 @@ export default function NavBar() {
   return (
     <nav style={{
       width: '100%',
-      padding: typeof window !== 'undefined' && window.innerWidth < 600 ? '0.5rem 1rem' : '0rem 2rem',
+      padding: '0rem 2rem',
       display: 'flex',
-      flexWrap: 'wrap',
       justifyContent: 'space-between',
       alignItems: 'center',
       position: 'fixed',
@@ -44,15 +43,15 @@ export default function NavBar() {
       boxShadow: '0 4px 10px rgba(0, 0, 0, 0.6)',
       transition: 'box-shadow 0.3s ease-in-out'
     }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: typeof window !== 'undefined' && window.innerWidth < 600 ? '12px' : '36px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }}>
         <a href="/" title="Zuki Home">
           <img src="/zuki-home.png" alt="Zuki Home" style={{ height: '60px', cursor: 'pointer', borderRadius: '8px' }} />
         </a>
-        <a href="/manga" style={{ color: 'white', textDecoration: 'none', fontSize: typeof window !== 'undefined' && window.innerWidth < 600 ? '16px' : '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Manga</a>
-        <a href="/gallery" style={{ color: 'white', textDecoration: 'none', fontSize: typeof window !== 'undefined' && window.innerWidth < 600 ? '16px' : '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Gallery</a>
-        <a href="/my-elementals" style={{ color: 'white', textDecoration: 'none', fontSize: typeof window !== 'undefined' && window.innerWidth < 600 ? '16px' : '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>My Elementals</a>
+        <a href="/manga" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Manga</a>
+        <a href="/gallery" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Gallery</a>
+        <a href="/my-elementals" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>My Elementals</a>
         <div ref={dropdownRef} style={{ position: 'relative' }}>
-          <div style={{ color: 'white', fontSize: typeof window !== 'undefined' && window.innerWidth < 600 ? '16px' : '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', cursor: 'pointer' }}>
+          <div style={{ color: 'white', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', cursor: 'pointer' }}>
             Socials ▾
           </div>
           {showDropdown && (
