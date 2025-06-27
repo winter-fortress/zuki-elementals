@@ -23,13 +23,11 @@ jobs:
       - name: Run update-owners script
         run: node .github/scripts/update-owners.js
 
-
-- name: Commit and push changes
-  run: |
-    git config user.name "zuki-auto-updater"
-    git config user.email "zuki@users.noreply.github.com"
-    git remote set-url origin https://x-access-token:${{ secrets.ZUKI_TOKEN }}@github.com/winter-fortress/zuki-elementals.git
-    git add public/owners.json
-    git commit -m "🔄 Auto-update owners.json" || echo "No changes to commit"
-    git push
-
+      - name: Commit and push changes
+        run: |
+          git config user.name "zuki-auto-updater"
+          git config user.email "zuki@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.ZUKI_TOKEN }}@github.com/winter-fortress/zuki-elementals.git
+          git add public/owners.json
+          git commit -m "🔄 Auto-update owners.json" || echo "No changes to commit"
+          git push
