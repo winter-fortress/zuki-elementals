@@ -1,4 +1,3 @@
-
 'use client';
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
@@ -9,7 +8,6 @@ export default function GalleryPage() {
   const [filtered, setFiltered] = useState<any[]>([]);
   const [sortOption, setSortOption] = useState('asc');
   const [currentPage, setCurrentPage] = useState(1);
-  const [inputPage, setInputPage] = useState('');
 
   const NFTsPerPage = 100;
 
@@ -33,56 +31,67 @@ export default function GalleryPage() {
     setFiltered(result);
   }, [sortOption, nfts]);
 
-  function handlePageJump(e: React.FormEvent) {
-    e.preventDefault();
-    const page = parseInt(inputPage);
-    if (!isNaN(page) && page > 0 && page <= 200) {
-      setCurrentPage(page);
+  function PaginationControls() {
+    const [localInputPage, setLocalInputPage] = useState('');
+
+    function handleSubmit(e: React.FormEvent) {
+      e.preventDefault();
+      const page = parseInt(localInputPage);
+      if (!isNaN(page) && page > 0 && page <= 200 && page !== currentPage) {
+        setCurrentPage(page);
+        setLocalInputPage('');
+      }
     }
+
+    return (
+      <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <button
+          onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
+        >
+          ← Prev
+        </button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            placeholder="Go to page"
+            value={localInputPage}
+            onChange={(e) => setLocalInputPage(e.target.value)}
+            style={{ padding: '0.5rem', borderRadius: '6px', width: '100px' }}
+          />
+          <button type="submit" style={{ padding: '0.5rem', borderRadius: '6px' }}>
+            Jump
+          </button>
+        </form>
+        <button
+          onClick={() => currentPage < 200 && setCurrentPage(currentPage + 1)}
+          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
+        >
+          Next →
+        </button>
+        <span style={{ marginLeft: '1rem' }}>Page {currentPage} / 200</span>
+      </div>
+    );
   }
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white' }}>
       <NavBar />
       <main style={{ padding: '7rem 2rem 2rem 2rem' }}>
-        <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <button
-            onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
-          >
-            ← Prev
-          </button>
-          <form onSubmit={handlePageJump}>
-            <input
-              type="number"
-              placeholder="Go to page"
-              value={inputPage}
-              onChange={(e) => setInputPage(e.target.value)}
-              style={{ padding: '0.5rem', borderRadius: '6px', width: '100px' }}
-            />
-            <button type="submit" style={{ padding: '0.5rem', borderRadius: '6px' }}>
-              Jump
-            </button>
-          </form>
-          <button
-            onClick={() => currentPage < 200 && setCurrentPage(currentPage + 1)}
-            style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
-          >
-            Next →
-          </button>
-          <span style={{ marginLeft: '1rem' }}>Page {currentPage} / 200</span>
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <PaginationControls />
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
           {filtered.map((nft) => (
             <NFTCard
               key={nft.tokenId}
               tokenId={nft.tokenId}
               owner={nft.owner}
-              name={nft.name}
               imageUrl={nft.imageUrl}
               tier={nft.tier}
             />
           ))}
+        </div>
+        <div style={{ marginTop: '2rem' }}>
+          <PaginationControls />
         </div>
       </main>
     </div>

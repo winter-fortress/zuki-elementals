@@ -9,7 +9,7 @@ export default function Home() {
         <h1 style={{ fontSize: '27px', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', marginBottom: '2rem' }}>
           ズーキ Zuki Elementals!!
         </h1>
-<div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+<div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
   <img
     src="/1.gif"
     alt="Zuki Elementals!!"
@@ -28,7 +28,7 @@ export default function Home() {
     />
 </div>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
-          Zuki Elementals is an anime art-style NFT collection on Ethereum Classic.
+          Zuki Elementals is an Azuki art-style NFT collection on Ethereum Classic.
         </p>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
           The mission of Zuki Elementals is a commitment to core principles of Ethereum:
