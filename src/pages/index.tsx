@@ -103,7 +103,7 @@ export default function Home() {
 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
   <a href="https://x.com/ZukiElementals" target="_blank" rel="noopener noreferrer">
     <img
-      src="/zuki.png"
+      src="/dev.png"
       alt="Zuki Elementals!!"
       style={{
         maxWidth: '200px',
