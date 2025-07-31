@@ -98,7 +98,7 @@ export default function Home() {
           }}
         />
         <h1 style={{ fontSize: '27px', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', marginBottom: '3rem' }}>
-          Meet the Dev ❤
+          Meet the Dev ❤ Elemental #8849
         </h1>
 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
   <a href="https://x.com/ZukiElementals" target="_blank" rel="noopener noreferrer">
@@ -123,7 +123,7 @@ export default function Home() {
   </a>
 </div>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
-          "stacking green beans on ETC would be 🔥" -- proudmoore
+          "stacking green beans on ETC would be 🔥" -- Proudmoore #8849
         </p>
       </main>
     </div>
