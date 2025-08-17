@@ -101,7 +101,7 @@ export default function Home() {
           Meet the Dev ❤ Elemental #8849
         </h1>
 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-  <a href="https://x.com/ZukiElementals" target="_blank" rel="noopener noreferrer">
+  <a href="https://x.com/arcade_meta" target="_blank" rel="noopener noreferrer">
     <img
       src="/dev.png"
       alt="Zuki Elementals!!"
