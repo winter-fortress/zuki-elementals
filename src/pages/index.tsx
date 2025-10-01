@@ -40,6 +40,16 @@ export default function Home() {
           How does it work?
         </h1>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
+          <a 
+            href="https://www.zukielementals.io/manga" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: '#2FAF25', textDecoration: 'underline', marginLeft: '6px' }}
+          >
+            Reveal Zuki Elementals
+          </a>
+        </p>
+        <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
           20,000 Elemental Beans were airdropped to select users of the Ethereum Classic network.
         </p>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '3rem' }}>
