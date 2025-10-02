@@ -47,6 +47,7 @@ export default function NavBar() {
         <a href="/" title="Zuki Home">
           <img src="/zuki-home.png" alt="Zuki Home" style={{ height: '60px', cursor: 'pointer', borderRadius: '8px' }} />
         </a>
+        <a href="/arcade" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Arcade</a>
         <a href="/manga" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Manga</a>
         <a href="/gallery" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Gallery</a>
         <a href="/my-elementals" style={{ color: 'white', textDecoration: 'none', fontSize: '27px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>My Elementals</a>

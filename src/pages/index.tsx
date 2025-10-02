@@ -41,7 +41,7 @@ export default function Home() {
         </h1>
         <p style={{ fontSize: '18px', fontFamily: 'Arial, serif', lineHeight: '1.6', marginBottom: '1rem' }}>
           <a 
-            href="https://www.zukielementals.io/manga" 
+            href="https://www.zukielementals.io/reveal" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#2FAF25', textDecoration: 'underline', marginLeft: '6px' }}
