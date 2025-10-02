@@ -16,7 +16,7 @@ export default function MangaPage() {
         style={{
           display: 'block',
           margin: '2rem auto',
-          maxWidth: '100%',
+          maxWidth: '50%',
           borderRadius: '12px'
         }}
       />
