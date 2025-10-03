@@ -58,7 +58,7 @@ export default function NavBar() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '22px', // slightly tighter spacing for even look
+          gap: '25px', // slightly tighter spacing for even look
         }}
       >
         {/* Home logo */}
@@ -161,7 +161,7 @@ const navLinkStyle: React.CSSProperties = {
 
 const dropdownPanelStyle = (panelMinWidth: number | 'max-content'): React.CSSProperties => ({
   position: 'absolute',
-  top: '40px',
+  top: '50px', // Controls dropdown spacing from navigation bar
   left: 0,
   backgroundColor: '#222',
   padding: '12px 16px',
