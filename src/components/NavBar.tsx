@@ -58,7 +58,7 @@ export default function NavBar() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '28px', // slightly tighter spacing for even look
+          gap: '22px', // slightly tighter spacing for even look
         }}
       >
         {/* Home logo */}
