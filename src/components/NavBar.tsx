@@ -2,17 +2,10 @@
 import { useRef, useState } from 'react';
 import WalletSection from './WalletSection';
 
-/** ──────────────────────────────────────────────────────────────
- *  Adjustables
- *  - Set DROPDOWN_WIDTH to 'auto' to fit content (no wrapping)
- *  - Or set to a number (px) for a fixed width, e.g., 260
- *  - DROPDOWN_ITEM_NOWRAP keeps each link on a single line
- *  ──────────────────────────────────────────────────────────── */
 const DROPDOWN_WIDTH: number | 'auto' = 'auto';
 const DROPDOWN_ITEM_NOWRAP = true;
 
 export default function NavBar() {
-  // Dropdown #1 (Socials)
   const [openSocials, setOpenSocials] = useState(false);
   const socialsRef = useRef<HTMLDivElement | null>(null);
   const socialsHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -26,7 +19,6 @@ export default function NavBar() {
     socialsHideTimer.current = setTimeout(() => setOpenSocials(false), 200);
   };
 
-  // Dropdown #2 (More / My Elementals)
   const [openMore, setOpenMore] = useState(false);
   const moreRef = useRef<HTMLDivElement | null>(null);
   const moreHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -40,11 +32,9 @@ export default function NavBar() {
     moreHideTimer.current = setTimeout(() => setOpenMore(false), 200);
   };
 
-  // Reusable panel sizing based on DROPDOWN_WIDTH
   const panelMinWidth =
     DROPDOWN_WIDTH === 'auto' ? ('max-content' as const) : DROPDOWN_WIDTH;
 
-  // Reusable link nowrap style
   const linkWhiteSpace = DROPDOWN_ITEM_NOWRAP ? ('nowrap' as const) : ('normal' as const);
 
   return (
@@ -64,7 +54,14 @@ export default function NavBar() {
         transition: 'box-shadow 0.3s ease-in-out',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '28px', // slightly tighter spacing for even look
+        }}
+      >
+        {/* Home logo */}
         <a href="/" title="Zuki Home">
           <img
             src="/zuki-home.png"
@@ -73,164 +70,46 @@ export default function NavBar() {
           />
         </a>
 
-        <a
-          href="/arcade"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-            fontSize: '27px',
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 'bold',
-          }}
-        >
-          Arcade
-        </a>
-        <a
-          href="/manga"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-            fontSize: '27px',
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 'bold',
-          }}
-        >
-          Manga
-        </a>
-        <a
-          href="/gallery"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-            fontSize: '27px',
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 'bold',
-          }}
-        >
-          Gallery
-        </a>
+        {/* Regular links */}
+        <a href="/arcade" style={navLinkStyle}>Arcade</a>
+        <a href="/manga" style={navLinkStyle}>Manga</a>
+        <a href="/gallery" style={navLinkStyle}>Gallery</a>
 
-        {/* Dropdown #1: My Elementals (independent) */}
+        {/* Dropdown: My Elementals */}
         <div
           ref={moreRef}
           onMouseEnter={moreEnter}
           onMouseLeave={moreLeave}
           style={{ position: 'relative' }}
         >
-          <div
-            style={{
-              color: 'white',
-              fontSize: '27px',
-              fontFamily: 'Arial, sans-serif',
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              userSelect: 'none',
-            }}
-          >
+          <div style={navLinkStyle}>
             My Elementals ▾
           </div>
           {openMore && (
-            <div
-              style={{
-                position: 'absolute',
-                top: '40px',
-                left: 0,
-                backgroundColor: '#222',
-                padding: '12px 16px',
-                borderRadius: '6px',
-                display: 'flex',
-                flexDirection: 'column',
-                zIndex: 1000,
-                minWidth: panelMinWidth, // ← adjustable
-                boxShadow: '0 8px 18px rgba(0,0,0,0.5)',
-                // Optional safety for very long entries on small screens:
-                maxWidth: '90vw',
-                overflowX: 'auto',
-              }}
-            >
-              <a
-                href="/my-elementals"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  padding: '12px 0',
-                  fontSize: '22px',
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: 'bold',
-                  whiteSpace: linkWhiteSpace, // ← no wrapping
-                }}
-              >
-                My Collection
-              </a>
-              <a
-                href="/reveal"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  padding: '12px 0',
-                  fontSize: '22px',
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: 'bold',
-                  whiteSpace: linkWhiteSpace,
-                }}
-              >
-                Reveal Elementals
-              </a>
-
+            <div style={dropdownPanelStyle(panelMinWidth)}>
+              <a href="/my-elementals" style={dropdownItemStyle(linkWhiteSpace)}>My Collection</a>
+              <a href="/reveal" style={dropdownItemStyle(linkWhiteSpace)}>Reveal Elementals</a>
             </div>
           )}
         </div>
 
-        {/* Dropdown #2: Socials (independent) */}
+        {/* Dropdown: Socials */}
         <div
           ref={socialsRef}
           onMouseEnter={socialsEnter}
           onMouseLeave={socialsLeave}
           style={{ position: 'relative' }}
         >
-          <div
-            style={{
-              color: 'white',
-              fontSize: '27px',
-              fontFamily: 'Arial, sans-serif',
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              userSelect: 'none',
-            }}
-          >
+          <div style={navLinkStyle}>
             Socials ▾
           </div>
           {openSocials && (
-            <div
-              style={{
-                position: 'absolute',
-                top: '40px',
-                left: 0,
-                backgroundColor: '#222',
-                padding: '12px 16px',
-                borderRadius: '6px',
-                display: 'flex',
-                flexDirection: 'column',
-                zIndex: 1000,
-                minWidth: panelMinWidth, // ← adjustable
-                boxShadow: '0 8px 18px rgba(0,0,0,0.5)',
-                maxWidth: '90vw',
-                overflowX: 'auto',
-              }}
-            >
+            <div style={dropdownPanelStyle(panelMinWidth)}>
               <a
                 href="https://x.com/zukielementals"
                 target="_blank"
                 rel="noreferrer noopener"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  padding: '12px 0',
-                  fontSize: '22px',
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: 'bold',
-                  whiteSpace: linkWhiteSpace, // ← no wrapping
-                }}
+                style={dropdownItemStyle(linkWhiteSpace)}
               >
                 Zuki Elementals
               </a>
@@ -238,24 +117,70 @@ export default function NavBar() {
                 href="https://x.com/ordinalpotions"
                 target="_blank"
                 rel="noreferrer noopener"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  padding: '12px 0',
-                  fontSize: '22px',
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: 'bold',
-                  whiteSpace: linkWhiteSpace,
-                }}
+                style={dropdownItemStyle(linkWhiteSpace)}
               >
                 Ordinal Potions
               </a>
             </div>
           )}
         </div>
+
+        {/* ✅ New ETC Logo inline with links */}
+        <a
+          href="https://opensea.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ethereum Classic"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <img
+            src="/opensea-logo.png"
+            alt="Ethereum Classic"
+            style={{ height: '60px', cursor: 'pointer', display: 'block' }}
+          />
+        </a>
       </div>
 
       <WalletSection />
     </nav>
   );
 }
+
+// ───────────────────────────────
+// Styles
+// ───────────────────────────────
+const navLinkStyle: React.CSSProperties = {
+  color: 'white',
+  textDecoration: 'none',
+  fontSize: '27px',
+  fontFamily: 'Arial, sans-serif',
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  userSelect: 'none',
+};
+
+const dropdownPanelStyle = (panelMinWidth: number | 'max-content'): React.CSSProperties => ({
+  position: 'absolute',
+  top: '40px',
+  left: 0,
+  backgroundColor: '#222',
+  padding: '12px 16px',
+  borderRadius: '6px',
+  display: 'flex',
+  flexDirection: 'column',
+  zIndex: 1000,
+  minWidth: panelMinWidth,
+  boxShadow: '0 8px 18px rgba(0,0,0,0.5)',
+  maxWidth: '90vw',
+  overflowX: 'auto',
+});
+
+const dropdownItemStyle = (whiteSpace: 'nowrap' | 'normal'): React.CSSProperties => ({
+  color: 'white',
+  textDecoration: 'none',
+  padding: '12px 0',
+  fontSize: '22px',
+  fontFamily: 'Arial, sans-serif',
+  fontWeight: 'bold',
+  whiteSpace,
+});
