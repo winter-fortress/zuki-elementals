@@ -1,7 +1,7 @@
 'use client';
 import NavBar from '../components/NavBar';
 
-export default function MangaPage() {
+export default function RevealPage() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white' }}>
       <NavBar />

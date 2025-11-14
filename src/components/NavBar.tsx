@@ -87,7 +87,7 @@ export default function NavBar() {
           </div>
           {openMore && (
             <div style={dropdownPanelStyle(panelMinWidth)}>
-              <a href="/my-elementals" style={dropdownItemStyle(linkWhiteSpace)}>My Collection</a>
+              <a href="/my-collection" style={dropdownItemStyle(linkWhiteSpace)}>My Collection</a>
               <a href="/reveal" style={dropdownItemStyle(linkWhiteSpace)}>Reveal Elementals</a>
             </div>
           )}

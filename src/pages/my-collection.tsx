@@ -5,7 +5,7 @@ import { useAddress, useChainId } from '@thirdweb-dev/react';
 import NavBar from '../components/NavBar';
 import NFTCard from '../components/NFTCard';
 
-export default function MyElementalsPage() {
+export default function MyCollectionPage() {
   const address = useAddress();
   const chainId = useChainId();
   const [nfts, setNfts] = useState<any[]>([]);
